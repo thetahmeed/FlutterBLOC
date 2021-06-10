@@ -42,6 +42,15 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            // 03
+            StreamBuilder(
+              stream: counterBloc.counterStream,
+              builder: (context, snapshot) {
+                return Text(
+                  '$_counter',
+                  style: Theme.of(context).textTheme.headline4,
+                );
+              },
             ),
 
             // 02
