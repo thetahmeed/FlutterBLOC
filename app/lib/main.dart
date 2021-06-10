@@ -43,6 +43,14 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ),
+
+            // 02
+            IconButton(
+              onPressed: () {
+                _counter++;
+                counterBloc.counterSink.add(_counter);
+              },
+              icon: Icon(Icons.add),
             ),
           ],
         ),
