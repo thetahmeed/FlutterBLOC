@@ -17,7 +17,7 @@ class CounterBloc {
 
   // State StremController
   // 1. StreamController: 'int' is the kind of data that we will exchange
-  final _stateStreamController = StreamController<int>();
+  final _stateStreamController = StreamController<int>(); // [It is single cast]
   // 2. Sink:
   StreamSink<int> get counterSink => _stateStreamController.sink;
   // 3. Stream:
