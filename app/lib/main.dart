@@ -40,6 +40,14 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            // 04
+            IconButton(
+              onPressed: () {
+                counterBloc.eventSink.add(UserCounterAction.Decre);
+              },
+              icon: Icon(Icons.remove),
+            ),
+
             // 03
             StreamBuilder(
               initialData: 0,
