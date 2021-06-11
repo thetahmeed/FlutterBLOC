@@ -66,6 +66,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   return Text(
                     '${snapshot.data}',
                   );
+                if (snapshot.hasError)
+                  return Text(snapshot.error.toString());
                 else
                   return Text('No data found');
               },
