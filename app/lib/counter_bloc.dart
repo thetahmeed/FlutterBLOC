@@ -8,18 +8,16 @@ enum UserCounterAction {
 }
 
 class CounterBloc {
-  // StreamController => [No one knows]
+  // StreamController => The pipe
   // Here is some things that you should cons.
   // sink => To add data to the pipe
   // stream => To get data from the pipe
   // [Here pipe is the media]
 
+  // State StremController
   // 1. StreamController: 'int' is the kind of data that we will exchange
-  final _streamController = StreamController<int>();
-
+  final _stateStreamController = StreamController<int>();
   // 2. Sink:
-  StreamSink<int> get counterSink => _streamController.sink;
-
+  StreamSink<int> get counterSink => _stateStreamController.sink;
   // 3. Stream:
-  Stream<int> get counterStream => _streamController.stream;
 }
