@@ -66,8 +66,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   return Text(
                     '${snapshot.data}',
                   );
-                if (snapshot.hasError)
-                  return Text(snapshot.error.toString());
+                if (snapshot.hasError) return Text(snapshot.error.toString());
+                if (snapshot.connectionState == ConnectionState.active)
+                  return Text('Active');
                 else
                   return Text('No data found');
               },
