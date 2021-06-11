@@ -26,4 +26,20 @@ class CounterBloc {
   final _eventStreamController = StreamController<UserCounterAction>();
   StreamSink<UserCounterAction> get eventSink => _eventStreamController.sink;
   Stream<UserCounterAction> get eventStream => _eventStreamController.stream;
+
+  // We will listen when ever this class is created
+  CounterBloc() {
+    int _counterIntValue = 0;
+
+    eventStream.listen((event) {
+      if (event == UserCounterAction.Incre)
+        _counterIntValue++;
+      else if (event == UserCounterAction.Decre)
+        _counterIntValue--;
+      else if (event == UserCounterAction.Reset) _counterIntValue = 0;
+
+      // Passing the data to another streamController
+      counterSink.add(_counterIntValue);
+    });
+  }
 }
