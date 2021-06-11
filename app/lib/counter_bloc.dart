@@ -20,4 +20,10 @@ class CounterBloc {
   // 2. Sink:
   StreamSink<int> get counterSink => _stateStreamController.sink;
   // 3. Stream:
+  Stream<int> get counterStream => _stateStreamController.stream;
+
+  // Event StreamController
+  final _eventStreamController = StreamController<UserCounterAction>();
+  StreamSink<UserCounterAction> get eventSink => _eventStreamController.sink;
+  Stream<UserCounterAction> get eventStream => _eventStreamController.stream;
 }
