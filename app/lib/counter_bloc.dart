@@ -1,5 +1,12 @@
 import 'dart:async';
 
+// because we want this type of event from the user
+enum UserCounterAction {
+  Incre,
+  Decre,
+  Reset,
+}
+
 class CounterBloc {
   // StreamController => [No one knows]
   // Here is some things that you should cons.
