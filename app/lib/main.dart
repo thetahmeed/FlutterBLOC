@@ -45,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
               stream: counterBloc.counterStream,
               builder: (context, snapshot) {
                 return Text(
+                  '${snapshot.data}',
                 );
               },
             ),
