@@ -62,9 +62,12 @@ class _MyHomePageState extends State<MyHomePage> {
               initialData: 0,
               stream: counterBloc.counterStream,
               builder: (context, snapshot) {
-                return Text(
-                  '${snapshot.data}',
-                );
+                if (snapshot.hasData)
+                  return Text(
+                    '${snapshot.data}',
+                  );
+                else
+                  return Text('No data found');
               },
             ),
 
