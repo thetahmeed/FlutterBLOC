@@ -40,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Spacer(),
             // 04
             IconButton(
               onPressed: () {
@@ -66,6 +67,12 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               icon: Icon(Icons.add),
             ),
+            Spacer(),
+            TextButton(
+                onPressed: () {
+                  counterBloc.eventSink.add(UserCounterAction.Reset);
+                },
+                child: Text('Reset'.toUpperCase())),
           ],
         ),
       ),
