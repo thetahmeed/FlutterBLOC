@@ -1,6 +1,5 @@
+import 'package:app/practiceOne/counter_bloc.dart';
 import 'package:flutter/material.dart';
-
-import '../counter_bloc.dart';
 
 class HomePageOne extends StatefulWidget {
   const HomePageOne({Key? key}) : super(key: key);
