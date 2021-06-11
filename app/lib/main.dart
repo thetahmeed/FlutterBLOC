@@ -42,6 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             // 03
             StreamBuilder(
+              initialData: 0,
               stream: counterBloc.counterStream,
               builder: (context, snapshot) {
                 return Text(
