@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
 
             // 03
-            // [Here is the place where we are listenig]
+            // [Here is the place where we are listening]
             StreamBuilder(
               initialData: 0,
               stream: counterBloc.counterStream,

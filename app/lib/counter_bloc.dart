@@ -17,7 +17,9 @@ class CounterBloc {
 
   // State StremController
   // 1. StreamController: 'int' is the kind of data that we will exchange
-  final _stateStreamController = StreamController<int>(); // [It is single cast]
+  //final _stateStreamController = StreamController<int>(); // [It is single cast]
+  final _stateStreamController =
+      StreamController<int>.broadcast(); // [It is broad cast]
   // 2. Sink:
   StreamSink<int> get counterSink => _stateStreamController.sink;
   // 3. Stream:
@@ -31,6 +33,9 @@ class CounterBloc {
   // We will listen when ever this class is created
   CounterBloc() {
     int _counterIntValue = 0;
+
+    // Here we are listening
+    counterStream.listen((event) {});
 
     eventStream.listen((event) {
       if (event == UserCounterAction.Incre)
