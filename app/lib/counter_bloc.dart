@@ -13,6 +13,7 @@ class CounterBloc {
   // sink => To add data to the pipe
   // stream => To get data from the pipe
   // [Here pipe is the media]
+  // IMPORTANT: Make sure you have close all the stream controller
 
   // State StremController
   // 1. StreamController: 'int' is the kind of data that we will exchange
@@ -41,5 +42,12 @@ class CounterBloc {
       // Passing the data to another streamController
       counterSink.add(_counterIntValue);
     });
+  }
+
+  // And here we are closing all the stream controller.
+  // And you have to call this method. (We did it on: main.dart => 36)
+  void closeTheStreamController() {
+    _stateStreamController.close();
+    _eventStreamController.close();
   }
 }

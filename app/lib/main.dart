@@ -30,6 +30,13 @@ class _MyHomePageState extends State<MyHomePage> {
   // 01
   final counterBloc = CounterBloc();
 
+  // 05
+  @override
+  void dispose() {
+    counterBloc.closeTheStreamController();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
