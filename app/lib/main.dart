@@ -27,8 +27,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
   // 01
   final counterBloc = CounterBloc();
 
@@ -47,8 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
               stream: counterBloc.counterStream,
               builder: (context, snapshot) {
                 return Text(
-                  '$_counter',
-                  style: Theme.of(context).textTheme.headline4,
                 );
               },
             ),
@@ -56,8 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
             // 02
             IconButton(
               onPressed: () {
-                _counter++;
-                counterBloc.counterSink.add(_counter);
               },
               icon: Icon(Icons.add),
             ),
