@@ -52,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // 02
             IconButton(
               onPressed: () {
+                counterBloc.eventSink.add(UserCounterAction.Incre);
               },
               icon: Icon(Icons.add),
             ),
