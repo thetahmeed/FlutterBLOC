@@ -20,3 +20,7 @@ enum UserNewsAction {
       }
     });
   }
+  void closeTheController() {
+    _stateStreamController.close();
+    _eventStreamController.close();
+  }
