@@ -1,14 +1,42 @@
+import 'package:app/practiceTwo/bloc/news_bloc.dart';
+import 'package:app/practiceTwo/model/articles.dart';
+import 'package:app/practiceTwo/model/news_model.dart';
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+class HomePageTwo extends StatefulWidget {
+  const HomePageTwo({Key? key}) : super(key: key);
+
+  @override
+  _HomePageTwoState createState() => _HomePageTwoState();
+}
+
+class _HomePageTwoState extends State<HomePageTwo> {
   final newsBloc = NewsBloc();
+
   @override
   void initState() {
     newsBloc.eventSink.add(UserNewsAction.Read);
     super.initState();
   }
+
   @override
   void dispose() {
     newsBloc.closeTheController();
     super.dispose();
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('News App with BloC'),
+      ),
+      body: getAllNews(),
+    );
+  }
+
+  StreamBuilder getAllNews() {
     return StreamBuilder<List<Articles>?>(
       stream: newsBloc.newsStream,
       builder: (context, snapshot) {
@@ -71,3 +99,6 @@
           );
         }
       },
+    );
+  }
+}
