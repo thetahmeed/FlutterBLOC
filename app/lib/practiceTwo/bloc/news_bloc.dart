@@ -8,3 +8,15 @@ enum UserNewsAction {
   final _eventStreamController = StreamController<UserNewsAction>();
   StreamSink<UserNewsAction> get eventSink => _eventStreamController.sink;
   Stream<UserNewsAction> get _eventStream => _eventStreamController.stream;
+  NewsBloc() {
+    _eventStream.listen((event) async {
+      if (event == UserNewsAction.Read) {
+        try {
+          var news = await ApiCall().getNews();
+          _newsSink.add(news.articles);
+        } on Exception catch (e) {
+          _newsSink.addError(e);
+        }
+      }
+    });
+  }
