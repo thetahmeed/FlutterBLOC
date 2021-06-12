@@ -4,6 +4,11 @@
     newsBloc.eventSink.add(UserNewsAction.Read);
     super.initState();
   }
+  @override
+  void dispose() {
+    newsBloc.closeTheController();
+    super.dispose();
+  }
     return StreamBuilder<List<Articles>?>(
       stream: newsBloc.newsStream,
       builder: (context, snapshot) {
